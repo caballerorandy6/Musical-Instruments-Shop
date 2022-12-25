@@ -2,18 +2,35 @@ import { Link, useLocation } from "react-router-dom";
 
 const Nav = () => {
   const location = useLocation();
-  //console.log(location);
 
   return (
-    <nav className="fixed justify-around bg-transparent flex w-full">
-      <h1> Musical Instruments Shop</h1>
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/guitars">Guitars</Link>
-        <Link to="/pianos">Pianos</Link>
-        <Link to="/trumpets">Trumpets</Link>
-        <Link to="/violins">Violins</Link>
+    <nav className="fixed w-full flex items-center justify-around bg-transparent p-10 font-bold text-white">
+      <Link to="/" className="text-4xl">
+        Musical Instruments Shop
+      </Link>
+      <div className="flex gap-6 text-xl uppercase font-bold">
+        <Link
+          className={`${location.pathname === "/" ? "text-yellow-200" : ""}`}
+          to="/"
+        >
+          Home
+        </Link>
+        <Link
+          className={`${
+            location.pathname === "/about" ? "text-yellow-200" : ""
+          }`}
+          to="/about"
+        >
+          About
+        </Link>
+        <Link
+          className={`${
+            location.pathname === "/instruments" ? "text-yellow-200" : ""
+          }`}
+          to="/instruments"
+        >
+          Instruments
+        </Link>
       </div>
     </nav>
   );

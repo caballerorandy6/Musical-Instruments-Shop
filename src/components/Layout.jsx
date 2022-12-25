@@ -5,9 +5,17 @@ import Footer from "./Footer";
 const Layout = () => {
   return (
     <>
-      <Nav />
-      <Outlet />
-      <Footer />
+      <header>
+        <Nav />
+      </header>
+
+      <main>
+        <Outlet />
+      </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

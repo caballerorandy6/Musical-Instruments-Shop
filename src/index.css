@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rgb-img {
+  background-image: linear-gradient(to right, rgb(0 0 0 / 0.8), rgb(0 0 0 /0.7)),
+    url(/public/img/pages-img/home_bg.jpg);
+}
