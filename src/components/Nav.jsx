@@ -4,7 +4,7 @@ const Nav = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed w-full flex items-center justify-around bg-transparent p-10 font-bold text-white">
+    <nav className="fixed w-full flex items-center justify-around bg-transparent p-10 font-bold text-white z-10">
       <Link to="/" className="text-4xl">
         Musical Instruments Shop
       </Link>

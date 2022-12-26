@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import Nav from "./Nav";
+import Nav from "../components/Nav";
 
 const Instruments = () => {
   return (
-    <div className="relative bg-cover bg-center w-full h-screen -z-10 rgb-img">
+    <div className="bg-cover bg-center w-full h-screen rgb-img">
       <img
         className="w-full h-full object-cover absolute mix-blend-overlay"
         src="/public/img/instruments.jpg"
