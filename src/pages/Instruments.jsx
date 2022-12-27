@@ -1,7 +1,8 @@
-import { Outlet } from "react-router-dom";
-import Nav from "../components/Nav";
+import { useNavigate } from "react-router-dom";
 
 const Instruments = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-cover bg-center w-full h-screen rgb-img">
       <img
@@ -16,7 +17,7 @@ const Instruments = () => {
           </h1>
         </header>
         <main className="flex justify-center gap-8 w-full overflow-y-scroll">
-          <article className="flex flex-col justify-center items-center border w-3/12 bg-white">
+          <article className="flex flex-col justify-center items-center border w-3/12 h-5/6 bg-white rounded">
             <img
               src="/public/img/guitar.jpg"
               alt="Guitar Img"
@@ -25,12 +26,13 @@ const Instruments = () => {
             <h3 className="text-xl p-2 text-black font-bold ">Guitars</h3>
             <button
               type="button"
-              className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-700 transition-colors rounded text-white font-bold uppercase z-10"
+              className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-800 transition-colors rounded text-white font-bold uppercase z-10"
+              onClick={() => navigate("/guitars")}
             >
               View All
             </button>
           </article>
-          <article className="flex flex-col justify-center items-center border w-3/12 h-auto bg-white">
+          <article className="flex flex-col justify-center items-center border w-3/12 h-5/6 bg-white rounded">
             <img
               src="/public/img/piano.jpg"
               alt="Guitar Img"
@@ -39,35 +41,35 @@ const Instruments = () => {
             <h3 className="text-xl p-2 text-black font-bold">Pianos</h3>
             <button
               type="button"
-              className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-700 transition-colors rounded text-white font-bold uppercase z-10"
+              className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-800 transition-colors rounded text-white font-bold uppercase z-10"
             >
               View All
             </button>
           </article>
-          <article className="flex flex-col justify-center items-center border w-3/12 bg-white">
+          <article className="flex flex-col justify-center items-center border w-3/12 h-5/6 bg-white rounded">
             <img
               src="/public/img/trumpet.webp"
               alt="Guitar Img"
               className="w-full h-3/5 z-10"
             />
-            <h3 className="text-xl p-2 text-black font-bold">Trumpet</h3>
+            <h3 className="text-xl p-2 text-black font-bold">Trumpets</h3>
             <button
               type="button"
-              className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-700 transition-colors rounded text-white font-bold uppercase z-10"
+              className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-800 transition-colors rounded text-white font-bold uppercase z-10"
             >
               View All
             </button>
           </article>
-          <article className="flex flex-col justify-center items-center border w-3/12 bg-white">
+          <article className="flex flex-col justify-center items-center border w-3/12 h-5/6 bg-white rounded">
             <img
               src="/public/img/violin.jpeg"
               alt="Guitar Img"
               className="w-full h-3/5 z-10"
             />
-            <h3 className="text-xl p-2 text-black font-bold">Violin</h3>
+            <h3 className="text-xl p-2 text-black font-bold">Violins</h3>
             <button
               type="button"
-              className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-700 transition-colors rounded text-white font-bold uppercase z-10"
+              className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-800 transition-colors rounded text-white font-bold uppercase z-10"
             >
               View All
             </button>

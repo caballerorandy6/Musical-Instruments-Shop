@@ -6,7 +6,7 @@ const Home = () => {
     <div className="relative bg-cover bg-center w-full h-screen -z-10 rgb-img">
       <img
         className="w-full h-full object-cover absolute mix-blend-overlay"
-        src="/public/img/home.jpg"
+        src="/public/img/home_bg.jpg"
         alt="Home Background Image"
       />
       <div className="flex flex-col justify-center w-8/12 h-screen mx-auto text-white">
