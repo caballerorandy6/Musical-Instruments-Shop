@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import Guitar from "../components/Guitar";
@@ -19,23 +18,20 @@ const Guitars = () => {
       <img
         className="w-full h-full object-cover absolute mix-blend-overlay"
         src="/public/img/guitars.jpg"
-        alt="Instrument Background Image"
+        alt="Guitars Background Image"
       />
-      <div className="flex flex-col justify-center w-8/12 h-screen mx-auto text-white z-10">
-        <header>
+      <div className="flex flex-col w-8/12 h-screen mx-auto text-white z-10">
+        <header className="mt-32">
           <h1 className="p-10 text-3xl uppercase font-semibold text-white text-center">
-            Guitar Collection
+            Guitars
           </h1>
         </header>
-        <main className="flex justify-center gap-8 w-full overflow-y-scroll">
-          {guitars?.length && (
-            <div>
-              {guitars.map((guitar) => (
-                <Guitar key={guitar.id} guitar={guitar.attributes} />
-              ))}
-            </div>
-          )}
-        </main>
+
+        <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full overflow-y-scroll z-10 gap-8 p-10">
+          {guitars?.map((guitar) => (
+            <Guitar key={guitar.id} guitar={guitar?.attributes} />
+          ))}
+        </div>
       </div>
     </div>
   );

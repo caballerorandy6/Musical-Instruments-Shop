@@ -42,6 +42,7 @@ const Instruments = () => {
             <button
               type="button"
               className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-800 transition-colors rounded text-white font-bold uppercase z-10"
+              onClick={() => navigate("/pianos")}
             >
               View All
             </button>
@@ -56,6 +57,7 @@ const Instruments = () => {
             <button
               type="button"
               className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-800 transition-colors rounded text-white font-bold uppercase z-10"
+              onClick={() => navigate("/trumpets")}
             >
               View All
             </button>
@@ -70,6 +72,7 @@ const Instruments = () => {
             <button
               type="button"
               className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-800 transition-colors rounded text-white font-bold uppercase z-10"
+              onClick={() => navigate("/violins")}
             >
               View All
             </button>

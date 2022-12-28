@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 //Context
