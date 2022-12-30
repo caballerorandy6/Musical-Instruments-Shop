@@ -9,6 +9,8 @@ import Trumpets, { loader as trumpetLoader } from "../pages/Trumpets";
 import Violins, { loader as violinLoader } from "../pages/Violins";
 import GuitarDetail from "../components/GuitarDetail";
 import TrumpetDetail from "../components/TrumpetDetail";
+import PianoDetail from "../components/PianoDetail";
+import ViolinDetail from "../components/ViolinDetail";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +26,8 @@ export const router = createBrowserRouter([
       { path: "/Violins", element: <Violins />, loader: violinLoader },
       { path: "/guitar/:guitarURL", element: <GuitarDetail /> },
       { path: "/trumpet/:trumpetURL", element: <TrumpetDetail /> },
+      { path: "/piano/:pianoURL", element: <PianoDetail /> },
+      { path: "/violin/:violinURL", element: <ViolinDetail /> },
     ],
   },
 ]);

@@ -3,29 +3,29 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Message from "./Message";
 
-const TrumpetDetail = () => {
-  const { trumpetURL } = useParams();
+const PianoDetail = () => {
+  const { pianoURL } = useParams();
 
-  const [trumpet, setTrumpet] = useState({});
-  const [trumpetId, setTrumpetId] = useState();
+  const [piano, setPiano] = useState({});
+  const [pianoId, setPianoId] = useState();
   const [quantity, setQuantity] = useState(0);
   const [message, setMessage] = useState(false);
 
-  const { name, description, price, image } = trumpet;
+  const { name, description, price, image } = piano;
 
-  const getTrumpet = async () => {
+  const getPiano = async () => {
     try {
-      const url = `http://127.0.0.1:1337/api/trumpets?filters[url]=${trumpetURL}&populate=image`;
-      const { data: trumpet } = await axios(url);
-      setTrumpet(trumpet.data[0].attributes);
-      setTrumpetId(trumpet.data[0].id);
+      const url = `http://127.0.0.1:1337/api/pianos?filters[url]=${pianoURL}&populate=image`;
+      const { data: piano } = await axios(url);
+      setPiano(piano.data[0].attributes);
+      setPianoId(piano.data[0].id);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getTrumpet();
+    getPiano();
   }, []);
 
   const handleSubmit = (e) => {
@@ -36,23 +36,23 @@ const TrumpetDetail = () => {
       setTimeout(() => {
         setMessage(false);
       }, 2000);
-      return;
     }
+    return;
+  };
 
-    const selectedTrumpet = {
-      trumpetId,
-      image: image?.data?.attributes?.formats?.medium?.url,
-      name,
-      price,
-      quantity,
-    };
+  const selectedPiano = {
+    pianoId,
+    image: image?.data?.attributes?.formats?.medium?.url,
+    name,
+    price,
+    quantity,
   };
 
   return (
     <div className="flex justify-center items-center w-full h-full bg-white gap-4">
       <img
         src={image?.data?.attributes?.formats?.medium?.url}
-        alt={`Trumpet Image ${name}`}
+        alt={`Piano Image ${name}`}
         className="w-2/12"
       />
       <div>
@@ -95,4 +95,4 @@ const TrumpetDetail = () => {
   );
 };
 
-export default TrumpetDetail;
+export default PianoDetail;

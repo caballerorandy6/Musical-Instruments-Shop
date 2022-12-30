@@ -16,7 +16,7 @@ const Piano = ({ piano }) => {
       <p className="text-black px-2">{description}</p>
       <p className="text-yellow-500 text-2xl p-2">{`$${price}`}</p>
       <Link
-        to={`/guitar/${url}`}
+        to={`/piano/${url}`}
         className="text-blue-500 p-2 hover:text-yellow-500 font-bold"
       >
         View Product...

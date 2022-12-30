@@ -2,9 +2,11 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Message from "./Message";
+import useShop from "../hooks/useShop";
 
 const GuitarDetail = () => {
   const { guitarURL } = useParams();
+  const { addGuitarCar, car } = useShop();
 
   const [guitar, setGuitar] = useState({});
   const [guitarId, setGuitarId] = useState();
@@ -36,17 +38,18 @@ const GuitarDetail = () => {
       setTimeout(() => {
         setMessage(false);
       }, 2000);
+      return;
     }
-    return;
+
+    const selectedGuitar = {
+      guitarId,
+      image: image?.data?.attributes?.formats?.medium?.url,
+      name,
+      price,
+      quantity,
+    };
+    addGuitarCar(selectedGuitar);
   };
-  const selectedGuitar = {
-    guitarId,
-    image: image?.data?.attributes?.formats?.medium?.url,
-    name,
-    price,
-    quantity,
-  };
-  console.log(selectedGuitar);
 
   return (
     <div className="flex justify-center items-center w-full h-full bg-white gap-4">
