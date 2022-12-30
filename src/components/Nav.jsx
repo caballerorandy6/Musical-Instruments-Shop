@@ -4,35 +4,49 @@ const Nav = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed w-full flex items-center justify-around bg-transparent p-10 font-bold text-white z-10">
-      <Link to="/" className="text-4xl">
-        Musical Instruments Shop
-      </Link>
-      <div className="flex gap-6 text-xl uppercase font-bold">
-        <Link
-          className={`${location.pathname === "/" ? "text-yellow-200" : ""}`}
-          to="/"
-        >
-          Home
-        </Link>
-        <Link
-          className={`${
-            location.pathname === "/about" ? "text-yellow-200" : ""
-          }`}
-          to="/about"
-        >
-          About
-        </Link>
-        <Link
-          className={`${
-            location.pathname === "/instruments" ? "text-yellow-200" : ""
-          }`}
-          to="/instruments"
-        >
-          Instruments
-        </Link>
+    <div>
+      <div className="bg-black h-60 w-full bg-cover bg-center relative bg-gradient-to-tr from-gray-600 to-gray-900">
+        <img
+          src="/img/home_bg.jpg"
+          alt="Home Background"
+          className="w-full h-60 object-cover object-center absolute mix-blend-overlay"
+        />
+        <div className="flex justify-between items-center text-white p-20 opacity-90">
+          <Link
+            to="/"
+            className="text-6xl hover:text-yellow-300 transition-colors"
+          >
+            Musical Instrument Store
+          </Link>
+          <nav className="flex gap-8 uppercase text-2xl font-bold">
+            <Link
+              to="/"
+              className={`${
+                location.pathname === "/" ? "text-yellow-300" : ""
+              } hover:text-yellow-300 transition-colors`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className={`${
+                location.pathname === "/about" ? "text-yellow-300" : ""
+              } hover:text-yellow-300 transition-colors`}
+            >
+              About
+            </Link>
+            <Link
+              to="/instruments"
+              className={`${
+                location.pathname === "/instruments" ? "text-yellow-300" : ""
+              } hover:text-yellow-300 transition-colors`}
+            >
+              Instruments
+            </Link>
+          </nav>
+        </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

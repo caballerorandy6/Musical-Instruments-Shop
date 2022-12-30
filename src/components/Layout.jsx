@@ -9,7 +9,7 @@ const Layout = () => {
         <Nav />
       </header>
 
-      <main>
+      <main className="bg-white h-screen overflow-y-scroll">
         <Outlet />
       </main>
 

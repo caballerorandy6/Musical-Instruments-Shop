@@ -4,26 +4,20 @@ const Instruments = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-cover bg-center w-full h-screen rgb-img">
-      <img
-        className="w-full h-full object-cover absolute mix-blend-overlay"
-        src="/public/img/instruments.jpg"
-        alt="Instrument Background Image"
-      />
-      <div className="flex flex-col justify-center w-8/12 h-screen mx-auto text-white z-10">
-        <header>
-          <h1 className="p-10 text-3xl uppercase font-semibold text-white text-center">
-            Musical Instruments
-          </h1>
-        </header>
-        <main className="flex justify-center gap-8 w-full overflow-y-scroll">
-          <article className="flex flex-col justify-center items-center border w-3/12 h-5/6 bg-white rounded">
+    <div className="bg-cover bg-center w-full h-screen ">
+      <div className="flex flex-col w-8/12 h-screen mx-auto text-white z-10">
+        <h1 className="py-20 text-3xl uppercase font-semibold text-black text-center">
+          Musical Instruments
+        </h1>
+
+        <main className="grid grid-cols-1 place-items-center xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full z-10 gap-8 pb-10">
+          <div className="flex flex-col justify-center items-center border p-4 w-full h-full bg-white rounded shadow-md">
             <img
-              src="/public/img/guitar.jpg"
-              alt="Guitar Img"
-              className="w-full h-3/5 z-10"
+              src="/img/guitar.jpg"
+              alt="Guitar Image"
+              className="w-full h-3/5 object-contain"
             />
-            <h3 className="text-xl p-2 text-black font-bold ">Guitars</h3>
+            <h3 className="text-xl p-2 text-black font-bold">Guitars</h3>
             <button
               type="button"
               className="p-2 border w-10/12 m-2 bg-blue-600 hover:bg-blue-800 transition-colors rounded text-white font-bold uppercase z-10"
@@ -31,12 +25,12 @@ const Instruments = () => {
             >
               View All
             </button>
-          </article>
-          <article className="flex flex-col justify-center items-center border w-3/12 h-5/6 bg-white rounded">
+          </div>
+          <div className="flex flex-col justify-center items-center border p-4 w-full h-full bg-white rounded shadow-md">
             <img
-              src="/public/img/piano.jpg"
-              alt="Guitar Img"
-              className="w-full h-3/5 z-10"
+              src="/img/piano.jpg"
+              alt="Piano Image"
+              className="w-full h-3/5 object-contain"
             />
             <h3 className="text-xl p-2 text-black font-bold">Pianos</h3>
             <button
@@ -46,12 +40,12 @@ const Instruments = () => {
             >
               View All
             </button>
-          </article>
-          <article className="flex flex-col justify-center items-center border w-3/12 h-5/6 bg-white rounded">
+          </div>
+          <div className="flex flex-col justify-center items-center border p-4 w-full h-full bg-white rounded shadow-md">
             <img
-              src="/public/img/trumpet.webp"
-              alt="Guitar Img"
-              className="w-full h-3/5 z-10"
+              src="/img/trumpet.jpg"
+              alt="Trumpet Image"
+              className="w-full h-3/5 object-contain"
             />
             <h3 className="text-xl p-2 text-black font-bold">Trumpets</h3>
             <button
@@ -61,12 +55,12 @@ const Instruments = () => {
             >
               View All
             </button>
-          </article>
-          <article className="flex flex-col justify-center items-center border w-3/12 h-5/6 bg-white rounded">
+          </div>
+          <div className="flex flex-col justify-center items-center border p-4 w-full h-full bg-white rounded shadow-md">
             <img
-              src="/public/img/violin.jpeg"
-              alt="Guitar Img"
-              className="w-full h-3/5 z-10"
+              src="/img/violin.jpg"
+              alt="Violin Image"
+              className="w-full h-3/5 object-contain"
             />
             <h3 className="text-xl p-2 text-black font-bold">Violins</h3>
             <button
@@ -76,7 +70,7 @@ const Instruments = () => {
             >
               View All
             </button>
-          </article>
+          </div>
         </main>
       </div>
     </div>
