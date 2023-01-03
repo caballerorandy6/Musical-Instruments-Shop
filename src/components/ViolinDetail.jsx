@@ -2,9 +2,11 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Message from "./Message";
+import useShop from "../hooks/useShop";
 
 const ViolinDetail = () => {
   const { violinURL } = useParams();
+  const { addInstrumentCar } = useShop();
 
   const [violin, setViolin] = useState({});
   const [violinId, setViolinId] = useState();
@@ -15,7 +17,9 @@ const ViolinDetail = () => {
 
   const getViolin = async () => {
     try {
-      const url = `http://127.0.0.1:1337/api/violins?filters[url]=${violinURL}&populate=image`;
+      const url = `${
+        import.meta.env.VITE_API_URL
+      }/violins?filters[url]=${violinURL}&populate=image`;
       const { data: violin } = await axios(url);
       setViolin(violin.data[0].attributes);
       setViolinId(violin.data[0].id);
@@ -40,47 +44,46 @@ const ViolinDetail = () => {
     }
 
     const selectedViolin = {
-      violinId,
+      id: violinId,
       image: image?.data?.attributes?.formats?.medium?.url,
       name,
       price,
       quantity,
     };
+    addInstrumentCar(selectedViolin);
   };
 
   return (
-    <div className="flex justify-center items-center w-full h-full bg-white gap-4">
+    <div className="flex justify-center items-start w-full h-full bg-white mt-10 gap-4">
       <img
         src={image?.data?.attributes?.formats?.medium?.url}
         alt={`Violin Image ${name}`}
-        className="w-2/12"
+        className="w-36"
       />
-      <div>
-        <h3 className="text-black text-4xl font-black p-2">{name}</h3>
-        <p className="text-black px-2">{description}</p>
-        <p className="text-yellow-500 text-2xl p-2">{`$${price}`}</p>
+      <div className="w-4/12">
+        <h3 className="text-black text-4xl font-black">{name}</h3>
+        <p className="text-black">{description}</p>
+        <p className="text-yellow-500 text-2xl p-1">{`$${price}`}</p>
 
-        <form onSubmit={handleSubmit} action="">
-          <div className="flex justify-center items-center gap-4 font-semibold mt-4">
-            <label className="font-bold text-xl" htmlFor="quantity">
-              Quantity:
-            </label>
-            <select
-              onChange={(e) => setQuantity(+e.target.value)}
-              className="bg-gradient-to-b from-gray-500 to-gray-600 p-2 rounded-md text-white"
-              id="quantity"
-            >
-              <option value="">-- Select --</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
+        <form onSubmit={handleSubmit}>
+          <label className="font-bold text-xl block" htmlFor="quantity">
+            Quantity:
+          </label>
+          <select
+            onChange={(e) => setQuantity(+e.target.value)}
+            className="bg-gradient-to-b from-gray-500 to-gray-600 p-2 rounded-md text-white mb-2 w-32 text-center block"
+            id="quantity"
+          >
+            <option value="">-- Select --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
 
           <input
-            className="p-2 border mt-4 w-full rounded-md bg-blue-600 hover:bg-blue-800 transition-colors uppercase text-white font-bold cursor-pointer"
+            className="p-2 border w-32 text-md rounded-md bg-blue-600 hover:bg-blue-800 transition-colors uppercase text-white font-bold cursor-pointer"
             type="submit"
             value="Add to cart"
           />

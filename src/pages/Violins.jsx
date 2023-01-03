@@ -1,10 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Violin from "../components/Violin";
 
 export const loader = async () => {
   const { data: violins } = await axios(
-    "http://127.0.0.1:1337/api/violins?populate=image"
+    `${import.meta.env.VITE_API_URL}/violins?populate=image`
   );
 
   return violins.data;
@@ -12,15 +12,16 @@ export const loader = async () => {
 
 const Violins = () => {
   const violins = useLoaderData();
+  const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center w-10/12 h-screen mx-auto text-white z-10 bg-white">
+    <div className="flex flex-col items-center w-10/12  mx-auto text-white z-10 bg-white">
       <h1 className="text-3xl mt-12 uppercase font-semibold text-black text-center">
-        Guitars
+        Violins
       </h1>
 
       <button
-        className="border bg-blue-600 hover:bg-blue-700 uppercase p-2 rounded-md font-bold shadow-md transition-colors place-self-end w-1/12 mb-4"
+        className="border bg-blue-600 hover:bg-blue-700 uppercase p-2 text-sm rounded-md font-bold shadow-md transition-colors place-self-end mb-4 w-20"
         onClick={() => navigate(-1)}
       >
         Back

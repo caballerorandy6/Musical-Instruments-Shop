@@ -7,32 +7,77 @@ const ShopContext = createContext();
 
 //Provider
 const ShopProvider = ({ children }) => {
-  const [car, setCar] = useState([]);
+  const cartLS =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("cart")) ?? []
+      : null;
+  const [cart, setCart] = useState(cartLS);
+  const [total, setTotal] = useState(0);
 
-  const hola = "hola";
+  //Local Storage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
-  const addGuitarCar = (guitar) => {
-    if (car.some((guitarState) => guitarState.id === guitar.id)) {
+  //Add Instrument to Cart
+  const addInstrumentCar = (instrument) => {
+    if (cart.some((instrumentState) => instrumentState.id === instrument.id)) {
       //Revisa si hay un elemento duplicado
 
-      const updatedCar = car.map((guitarState) => {
+      const updatedCar = clearTimeout.map((instrumentState) => {
         //Iterar sobre el arreglo e identificar el elemento duplicado
 
-        if (guitarState.id === guitar.id) {
-          guitarState.quantity = guitar.quantity; //Reescribir la cantidad
-          //guitarState.quantity += guitar.quantity; //Tambien podemos sumar la cantidad
+        if (instrumentState.id === instrument.id) {
+          instrumentState.quantity = instrument.quantity; //Reescribir la cantidad
+          //instrumentState.quantity += instrument.quantity; //Tambien podemos sumar la cantidad
         }
-        return guitarState;
+        return instrumentState;
       });
-      setCar(updatedCar);
+      setCart(updatedCar);
     } else {
       //New Register, add to car
-      setCar([...car, guitar]);
+      setCart([...cart, instrument]);
     }
   };
 
+  //Calculate Total
+  useEffect(() => {
+    const calculateTotal = cart.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0
+    );
+    setTotal(calculateTotal);
+  }, [cart]);
+
+  //Update Instrument Quantity Cart
+  const updateQuantity = (instrument) => {
+    const updatedCart = cart.map((instrumentState) => {
+      if (instrumentState.id === instrument.id) {
+        instrumentState.quantity = instrument.quantity;
+      }
+      return instrumentState;
+    });
+    setCart(updatedCart);
+  };
+
+  //Delete Instrument
+  const deleteInstrument = (id) => {
+    const updatedCart = cart.filter(
+      (instrumentState) => instrumentState.id !== id
+    );
+    setCart(updatedCart);
+  };
+
   return (
-    <ShopContext.Provider value={{ addGuitarCar, car }}>
+    <ShopContext.Provider
+      value={{
+        addInstrumentCar,
+        cart,
+        updateQuantity,
+        total,
+        deleteInstrument,
+      }}
+    >
       {children}
     </ShopContext.Provider>
   );

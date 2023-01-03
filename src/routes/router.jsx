@@ -11,6 +11,7 @@ import GuitarDetail from "../components/GuitarDetail";
 import TrumpetDetail from "../components/TrumpetDetail";
 import PianoDetail from "../components/PianoDetail";
 import ViolinDetail from "../components/ViolinDetail";
+import Cart from "../pages/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       { path: "/trumpet/:trumpetURL", element: <TrumpetDetail /> },
       { path: "/piano/:pianoURL", element: <PianoDetail /> },
       { path: "/violin/:violinURL", element: <ViolinDetail /> },
+      { path: "/cart", element: <Cart /> },
     ],
   },
 ]);
